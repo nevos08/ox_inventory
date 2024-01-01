@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaWeightHanging } from 'react-icons/fa6';
 
 const colorChannelMixer = (colorChannelA: number, colorChannelB: number, amountToMix: number) => {
   let channelA = colorChannelA * amountToMix;
@@ -34,16 +35,19 @@ const WeightBar: React.FC<{ percent: number; durability?: boolean }> = ({ percen
   );
 
   return (
-    <div className={durability ? 'durability-bar' : 'weight-bar'}>
-      <div
-        style={{
-          visibility: percent > 0 ? 'visible' : 'hidden',
-          height: '100%',
-          width: `${percent}%`,
-          backgroundColor: color,
-          transition: `background ${0.3}s ease, width ${0.3}s ease`,
-        }}
-      ></div>
+    <div className={!durability ? 'weight-bar-wrapper' : undefined}>
+      {!durability && <FaWeightHanging className="weight-bar-icon" />}
+      <div className={durability ? 'durability-bar' : 'weight-bar'}>
+        <div
+          style={{
+            visibility: percent > 0 ? 'visible' : 'hidden',
+            height: '100%',
+            width: `${percent}%`,
+            backgroundColor: color,
+            transition: `background ${0.3}s ease, width ${0.3}s ease`,
+          }}
+        ></div>
+      </div>
     </div>
   );
 };

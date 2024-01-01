@@ -1,17 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 $mainColor: #22232c;
 $textColor: #c1c2c5;
-$mainFont: Roboto;
+$mainFont: Inter;
 
 $secondaryColor: rgba(12, 12, 12, 0.4);
-$secondaryColorHighlight: #33343F;
+$secondaryColorHighlight: #33343f;
 $secondaryColorLight: rgba(0, 0, 0, 0.5);
 $secondaryColorDark: rgba(12, 12, 12, 0.8);
 
 $gridCols: 5;
 $gridRows: 5;
-$gridSize: 10.2vh;
+// $gridSize: 10.2vh;
+$gridSize: 8.5vh;
 $gridGap: 2px;
-$containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gridGap});
+$containerSize: calc(#{$gridRows} * #{$gridSize} + #{$gridRows} * #{$gridGap});
 
 body {
   margin: 0;
@@ -57,34 +60,41 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .context-menu-list {
-  min-width: 200px;
-  background-color: $mainColor;
+  min-width: 80px;
+  // background-color: $mainColor;
+  background-color: rgba(0, 0, 0, 0.8);
   color: $textColor;
-  padding: 4px;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
-  border-radius: 4px;
+  padding: 5px;
+  // border-color: rgba(0, 0, 0, 0.2);
+  // border-style: inset;
+  // border-width: 1px;
+  border-radius: 8px;
   outline: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.context-menu-item  {
+.context-menu-item {
+  width: 100%;
   padding: 8px;
+  padding-inline: 15px;
   border-radius: 4px;
   background-color: transparent;
+  font-weight: 600;
+  font-family: $mainFont;
   outline: none;
   border: none;
   color: $textColor;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   &:active {
     transform: none;
   }
   &:hover {
-    background-color: $secondaryColorHighlight;
+    // background-color: $secondaryColorHighlight;
+    background-color: #3182ce;
     cursor: pointer;
   }
 }
@@ -116,10 +126,11 @@ button:active {
 }
 
 .inventory-wrapper {
+  padding: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  // align-items: center;
   height: 100%;
 
   gap: 20px;
@@ -127,18 +138,28 @@ button:active {
 
 .inventory-control {
   display: flex;
+  // flex-direction: row;
 
   .inventory-control-wrapper {
+    // width: 250px;
+    margin-top: 15px;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    gap: 10px;
     justify-content: center;
     align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 3px black;
+
+    background-color: rgba(0, 0, 0, 0.8);
+    height: max-content;
   }
 
   .inventory-control-input {
     transition: 200ms;
-    padding: 16px 8px;
+    padding: 10px 4px;
     border-radius: 2.5%;
     font-family: $mainFont;
     font-size: 16px;
@@ -146,9 +167,14 @@ button:active {
     outline: none;
     border: none;
     color: #fff;
-    background-color: $secondaryColor;
+    // background-color: $secondaryColor;
+    background-color: rgba(255, 255, 255, 0.08);
+    // width: 100px;
+    width: 100%;
+    border-radius: 8px;
     &:focus-within {
-      background-color: $secondaryColorDark;
+      background-color: #3182ce;
+      // background-color: $secondaryColorDark;
     }
   }
 
@@ -163,9 +189,15 @@ button:active {
     text-transform: uppercase;
     font-family: $mainFont;
     width: 100%;
-    font-weight: 500;
+    font-weight: 600;
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
     &:hover {
-      background-color: $secondaryColorDark;
+      // background-color: $secondaryColorDark;
+      background-color: #3182ce;
     }
   }
 }
@@ -255,9 +287,9 @@ button:active {
 
 // Dialog is used fro useful controls window
 
-
 // inventory grids
 .inventory-grid-wrapper {
+  // height: max-content;
   display: flex;
   flex-direction: column;
   gap: calc($gridGap * 2);
@@ -266,44 +298,54 @@ button:active {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   p {
     font-size: 16px;
   }
 }
 
 .inventory-grid-container {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   display: grid;
   height: $containerSize;
   grid-template-columns: repeat($gridCols, $gridSize);
-  grid-auto-rows: $gridSize + 0.22vh;
-  gap: $gridGap;
+  grid-auto-rows: $gridSize;
+  // gap: $gridGap;
+  gap: 10px;
   overflow-y: scroll;
 }
 
 // inventory slots
 .inventory-slot {
-  background-color: $secondaryColor;
+  // background-color: $secondaryColor;
+  background-color: rgba(255, 255, 255, 0.08);
   background-repeat: no-repeat;
   background-position: center;
-  border-radius: 2.5%;
+  border-radius: 5px;
   image-rendering: -webkit-optimize-contrast;
   position: relative;
   background-size: 7vh;
   color: $textColor;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
+  // border-color: rgba(0, 0, 0, 0.2);
+  // border-style: inset;
+  // border-width: 1px;
 }
 
 .inventory-slot-label-box {
-  background-color: $mainColor;
-  color: $textColor;
+  // background-color: $mainColor;
+  // color: $textColor;
   text-align: center;
-  border-bottom-left-radius: 0.25vh;
-  border-bottom-right-radius: 0.25vh;
-  border-top-color: rgba(0, 0, 0, 0.2);
-  border-top-style: inset;
-  border-top-width: 1px;
+  color: white; // border-bottom-left-radius: 0.25vh;
+  // border-bottom-right-radius: 0.25vh;
+  // border-top-color: rgba(0, 0, 0, 0.2);
+  // border-top-style: inset;
+  // border-top-width: 1px;
 }
 
 .inventory-slot-label-text {
@@ -311,20 +353,22 @@ button:active {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 2px 3px;
-  font-weight: 400;
+  padding: 2px 4px;
+  font-weight: 600;
   font-family: $mainFont;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .inventory-slot-number {
-  background-color: white;
-  color: black;
+  // background-color: white;
+  // color: black;
+  color: white;
   height: 12px;
   border-top-left-radius: 0.25vh;
   border-bottom-right-radius: 0.25vh;
-  padding: 3px;
-  font-size: 12px;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: 600;
   font-family: $mainFont;
 }
 
@@ -356,7 +400,7 @@ button:active {
   padding: 3px;
   gap: 3px;
   p {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -383,24 +427,24 @@ button:active {
   }
 }
 
-
 .tooltip-wrapper {
   pointer-events: none;
   display: flex;
-  background-color: $mainColor;
+  // background-color: $mainColor;
+  background-color: rgba(0, 0, 0, 0.8);
   width: 200px;
   padding: 8px;
   flex-direction: column;
   min-width: 200px;
   color: $textColor;
   font-family: $mainFont;
-  border-radius: 4px;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
+  border-radius: 8px;
+  // border-color: rgba(0, 0, 0, 0.2);
+  // border-style: inset;
+  // border-width: 1px;
   p {
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 600;
   }
 }
 
@@ -410,8 +454,8 @@ button:active {
   justify-content: space-between;
   align-items: center;
   p {
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 600;
   }
 }
 
@@ -452,6 +496,16 @@ button:active {
   width: 100%;
   position: absolute;
   bottom: 2vh;
+}
+
+.hotbar-wrapper {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 0 3px black;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
 
 .hotbar-item-slot {
@@ -509,12 +563,31 @@ button:active {
   overflow: hidden;
 }
 
-.weight-bar {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px inset rgba(0, 0, 0, 0.1);
-  height: 0.8vh;
-  border-radius: 5%;
-  overflow: hidden;
+.weight-bar-wrapper {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  padding-block: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .weight-bar {
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.08);
+    // border: 1px inset rgba(0, 0, 0, 0.1);
+    height: 12px;
+    border-radius: 3px;
+    // box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+
+  .weight-bar-icon {
+    font-size: 20px;
+  }
 }
 
 .transition-fade-enter {
@@ -536,7 +609,7 @@ button:active {
 }
 
 .transition-slide-up-enter {
-  transform: translateY(200px)
+  transform: translateY(200px);
 }
 
 .transition-slide-up-enter-active {

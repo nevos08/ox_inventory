@@ -53,9 +53,9 @@ const InventoryControl: React.FC = () => {
           <button className="inventory-control-button" ref={give}>
             {Locale.ui_give || 'Give'}
           </button>
-          <button className="inventory-control-button" onClick={() => fetchNui('exit')}>
+          {/* <button className="inventory-control-button" onClick={() => fetchNui('exit')}>
             {Locale.ui_close || 'Close'}
-          </button>
+          </button> */}
         </div>
       </div>
 

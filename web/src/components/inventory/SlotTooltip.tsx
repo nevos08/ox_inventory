@@ -28,7 +28,7 @@ const SlotTooltip: React.ForwardRefRenderFunction<
           <div className="tooltip-header-wrapper">
             <p>{item.name}</p>
           </div>
-          <Divider />
+          {/* <Divider /> */}
         </div>
       ) : (
         <div style={{ ...style }} className="tooltip-wrapper" ref={ref}>
@@ -43,7 +43,7 @@ const SlotTooltip: React.ForwardRefRenderFunction<
               <p>{item.metadata?.type}</p>
             )}
           </div>
-          <Divider />
+          {/* <Divider /> */}
           {description && (
             <div className="tooltip-description">
               <ReactMarkdown className="tooltip-markdown">{description}</ReactMarkdown>

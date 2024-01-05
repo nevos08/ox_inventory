@@ -27,6 +27,8 @@ const InventoryHotbar: React.FC = () => {
   return (
     <SlideUp in={hotbarVisible}>
       <div className="hotbar-container">
+      <div className="hotbar-wrapper">
+
         {items.map((item) => (
           <div
             className="hotbar-item-slot"
@@ -66,6 +68,7 @@ const InventoryHotbar: React.FC = () => {
             )}
           </div>
         ))}
+        </div>
       </div>
     </SlideUp>
   );

@@ -3,7 +3,8 @@ if not lib then return end
 local Query = {
     SELECT_STASH = 'SELECT data FROM ox_inventory WHERE owner = ? AND name = ?',
     UPDATE_STASH = 'UPDATE ox_inventory SET data = ? WHERE owner = ? AND name = ?',
-    UPSERT_STASH = 'INSERT INTO ox_inventory (data, owner, name) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE data = VALUES(data)',
+    UPSERT_STASH =
+    'INSERT INTO ox_inventory (data, owner, name) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE data = VALUES(data)',
     INSERT_STASH = 'INSERT INTO ox_inventory (owner, name) VALUES (?, ?)',
     SELECT_GLOVEBOX = 'SELECT plate, glovebox FROM `{vehicle_table}` WHERE `{vehicle_column}` = ?',
     SELECT_TRUNK = 'SELECT plate, trunk FROM `{vehicle_table}` WHERE `{vehicle_column}` = ?',
@@ -32,10 +33,15 @@ Citizen.CreateThreadNow(function()
         vehicleTable = 'player_vehicles'
         vehicleColumn = 'plate'
     elseif shared.framework == 'nd' then
-		playerTable = 'nd_characters'
-		playerColumn = 'charid'
-		vehicleTable = 'nd_vehicles'
-		vehicleColumn = 'id'
+        playerTable = 'nd_characters'
+        playerColumn = 'charid'
+        vehicleTable = 'nd_vehicles'
+        vehicleColumn = 'id'
+    elseif shared.framework == "nvx" then
+        playerTable = "characters"
+        playerColumn = "charId"
+        vehicleTable = "vehicles"
+        vehicleColumn = "id"
     end
 
     for k, v in pairs(Query) do
@@ -112,9 +118,10 @@ Citizen.CreateThreadNow(function()
 
     local clearStashes = GetConvar('inventory:clearstashes', '6 MONTH')
 
-	if clearStashes ~= '' then
-		pcall(MySQL.query.await, ('DELETE FROM ox_inventory WHERE lastupdated < (NOW() - INTERVAL %s)'):format(clearStashes))
-	end
+    if clearStashes ~= '' then
+        pcall(MySQL.query.await,
+            ('DELETE FROM ox_inventory WHERE lastupdated < (NOW() - INTERVAL %s)'):format(clearStashes))
+    end
 end)
 
 db = {}
@@ -201,7 +208,8 @@ function db.saveInventories(players, trunks, gloveboxes, stashes, total)
         promises[#promises + 1] = p
 
         MySQL.prepare(Query.UPDATE_GLOVEBOX, gloveboxes, function(resp)
-            shared.info(('Saved %d/%d gloveboxes (%.4f ms)'):format(countRows(resp), total[3], (os.nanotime() - start) / 1e6))
+            shared.info(('Saved %d/%d gloveboxes (%.4f ms)'):format(countRows(resp), total[3],
+                (os.nanotime() - start) / 1e6))
             p:resolve()
         end)
     end
@@ -213,18 +221,20 @@ function db.saveInventories(players, trunks, gloveboxes, stashes, total)
         if server.bulkstashsave then
             total[4] /= 3
 
-            MySQL.query(Query.UPSERT_STASH:gsub('%(%?, %?, %?%)', string.rep('(?, ?, ?)', total[4], ', ')), stashes, function(resp)
-                local affectedRows = resp.affectedRows
+            MySQL.query(Query.UPSERT_STASH:gsub('%(%?, %?, %?%)', string.rep('(?, ?, ?)', total[4], ', ')), stashes,
+                function(resp)
+                    local affectedRows = resp.affectedRows
 
-                if total[4] == 1 then
-                    if affectedRows == 2 then affectedRows = 1 end
-                else
-                    affectedRows -= tonumber(resp.info:match('Duplicates: (%d+)'), 10) or 0
-                end
+                    if total[4] == 1 then
+                        if affectedRows == 2 then affectedRows = 1 end
+                    else
+                        affectedRows -= tonumber(resp.info:match('Duplicates: (%d+)'), 10) or 0
+                    end
 
-                shared.info(('Saved %d/%d stashes (%.4f ms)'):format(affectedRows, total[4], (os.nanotime() - start) / 1e6))
-                p:resolve()
-            end)
+                    shared.info(('Saved %d/%d stashes (%.4f ms)'):format(affectedRows, total[4],
+                        (os.nanotime() - start) / 1e6))
+                    p:resolve()
+                end)
         else
             MySQL.rawExecute(Query.UPSERT_STASH, stashes, function(resp)
                 local affectedRows = 0
@@ -237,7 +247,8 @@ function db.saveInventories(players, trunks, gloveboxes, stashes, total)
                     end
                 end
 
-                shared.info(('Saved %s/%s stashes (%.4f ms)'):format(affectedRows, total[4], (os.nanotime() - start) / 1e6))
+                shared.info(('Saved %s/%s stashes (%.4f ms)'):format(affectedRows, total[4],
+                    (os.nanotime() - start) / 1e6))
                 p:resolve()
             end)
         end

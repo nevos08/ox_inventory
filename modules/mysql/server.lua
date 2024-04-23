@@ -172,57 +172,79 @@ local function countRows(rows)
     return n
 end
 
+local function safeQuery(...)
+    local ok, resp = pcall(...)
+
+    if not ok then
+        return warn(resp)
+    end
+
+    return resp
+end
+
 ---@param players InventorySaveData[]
 ---@param trunks InventorySaveData[]
 ---@param gloveboxes InventorySaveData[]
 ---@param stashes (InventorySaveData | string | number)[]
 ---@param total number[]
 function db.saveInventories(players, trunks, gloveboxes, stashes, total)
-    local promises = {}
     local start = os.nanotime()
+    local saveStr = 'Saved %d/%d %s (%.4f ms)'
+    local pending = 0
 
     shared.info(('Saving %s inventories to the database'):format(total[5]))
 
     if total[1] > 0 then
-        local p = promise.new()
-        promises[#promises + 1] = p
+        pending += 1
 
-        MySQL.prepare(Query.UPDATE_PLAYER, players, function(resp)
-            shared.info(('Saved %d/%d players (%.4f ms)'):format(countRows(resp), total[1], (os.nanotime() - start) / 1e6))
-            p:resolve()
+        Citizen.CreateThreadNow(function()
+            local resp = safeQuery(MySQL.prepare.await, Query.UPDATE_PLAYER, players)
+            pending -= 1
+
+            if resp then
+                shared.info(saveStr:format(countRows(resp), total[1], 'players', (os.nanotime() - start) / 1e6))
+            end
         end)
     end
 
     if total[2] > 0 then
-        local p = promise.new()
-        promises[#promises + 1] = p
+        pending += 1
 
-        MySQL.prepare(Query.UPDATE_TRUNK, trunks, function(resp)
-            shared.info(('Saved %d/%d trunks (%.4f ms)'):format(countRows(resp), total[2], (os.nanotime() - start) / 1e6))
-            p:resolve()
+        Citizen.CreateThreadNow(function()
+            local resp = safeQuery(MySQL.prepare.await, Query.UPDATE_TRUNK, trunks)
+            pending -= 1
+
+            if resp then
+                shared.info(saveStr:format(countRows(resp), total[2], 'trunks', (os.nanotime() - start) / 1e6))
+            end
         end)
     end
 
     if total[3] > 0 then
-        local p = promise.new()
-        promises[#promises + 1] = p
+        pending += 1
 
-        MySQL.prepare(Query.UPDATE_GLOVEBOX, gloveboxes, function(resp)
-            shared.info(('Saved %d/%d gloveboxes (%.4f ms)'):format(countRows(resp), total[3],
-                (os.nanotime() - start) / 1e6))
-            p:resolve()
+        Citizen.CreateThreadNow(function()
+            local resp = safeQuery(MySQL.prepare.await, Query.UPDATE_GLOVEBOX, gloveboxes)
+            pending -= 1
+
+            if resp then
+                shared.info(saveStr:format(countRows(resp), total[3], 'gloveboxes', (os.nanotime() - start) / 1e6))
+            end
         end)
     end
 
     if total[4] > 0 then
-        local p = promise.new()
-        promises[#promises + 1] = p
+        pending += 1
 
         if server.bulkstashsave then
             total[4] /= 3
 
-            MySQL.query(Query.UPSERT_STASH:gsub('%(%?, %?, %?%)', string.rep('(?, ?, ?)', total[4], ', ')), stashes,
-                function(resp)
+            Citizen.CreateThreadNow(function()
+                local query = Query.UPSERT_STASH:gsub('%(%?, %?, %?%)', string.rep('(?, ?, ?)', total[4], ', '))
+                local resp = safeQuery(MySQL.query.await, query, stashes)
+                pending -= 1
+
+                if resp then
                     local affectedRows = resp.affectedRows
 
                     if total[4] == 1 then
@@ -231,31 +253,32 @@ function db.saveInventories(players, trunks, gloveboxes, stashes, total)
                         affectedRows -= tonumber(resp.info:match('Duplicates: (%d+)'), 10) or 0
                     end
 
-                    shared.info(('Saved %d/%d stashes (%.4f ms)'):format(affectedRows, total[4],
-                        (os.nanotime() - start) / 1e6))
-                    p:resolve()
-                end)
-        else
-            MySQL.rawExecute(Query.UPSERT_STASH, stashes, function(resp)
-                local affectedRows = 0
-
-                if table.type(resp) == 'hash' then
-                    if resp.affectedRows > 0 then affectedRows = 1 end
-                else
-                    for i = 1, #resp do
-                        if resp[i].affectedRows > 0 then affectedRows += 1 end
-                    end
+                    shared.info(saveStr:format(affectedRows, total[4], 'stashes', (os.nanotime() - start) / 1e6))
                 end
+            end)
+        else
+            Citizen.CreateThreadNow(function()
+                local resp = safeQuery(MySQL.rawExecute.await, Query.UPSERT_STASH, stashes)
+                pending -= 1
 
-                shared.info(('Saved %s/%s stashes (%.4f ms)'):format(affectedRows, total[4],
-                    (os.nanotime() - start) / 1e6))
-                p:resolve()
+                if resp then
+                    local affectedRows = 0
+
+                    if table.type(resp) == 'hash' then
+                        if resp.affectedRows > 0 then affectedRows = 1 end
+                    else
+                        for i = 1, #resp do
+                            if resp[i].affectedRows > 0 then affectedRows += 1 end
+                        end
+                    end
+
+                    shared.info(saveStr:format('stashes', affectedRows, total[4], (os.nanotime() - start) / 1e6))
+                end
             end)
         end
     end
 
-    -- All queries must run asynchronously on resource stop, so we'll await multiple promises instead.
-    Citizen.Await(promise.all(promises))
+    repeat Wait(0) until pending == 0
 end
 
 return db

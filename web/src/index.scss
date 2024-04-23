@@ -62,7 +62,7 @@ input[type='number']::-webkit-outer-spin-button {
 .context-menu-list {
   min-width: 80px;
   // background-color: $mainColor;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #0a0a0a;
   color: $textColor;
   padding: 5px;
   // border-color: rgba(0, 0, 0, 0.2);
@@ -153,7 +153,7 @@ button:active {
     border-radius: 8px;
     box-shadow: 0 0 3px black;
 
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #0a0a0a;
     height: max-content;
   }
 
@@ -298,17 +298,17 @@ button:active {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #0a0a0a;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   p {
     font-size: 16px;
   }
 }
 
 .inventory-grid-container {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #0a0a0a;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
@@ -431,7 +431,7 @@ button:active {
   pointer-events: none;
   display: flex;
   // background-color: $mainColor;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #0a0a0a;
   width: 200px;
   padding: 8px;
   flex-direction: column;
@@ -499,7 +499,7 @@ button:active {
 }
 
 .hotbar-wrapper {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #0a0a0a;
   border-radius: 8px;
   box-shadow: 0 0 3px black;
   padding: 15px;
@@ -566,7 +566,7 @@ button:active {
 .weight-bar-wrapper {
   margin-top: 10px;
   margin-bottom: 5px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #0a0a0a;
   padding: 15px;
   padding-block: 10px;
   border-radius: 8px;

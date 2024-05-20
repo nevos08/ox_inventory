@@ -1244,7 +1244,7 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 		createDrop(dropId, data)
 	end
 
-	local hasTextUi = false
+	local hasTextUi
 	local uiOptions = { icon = 'fa-id-card' }
 
 	---@param point CPoint
@@ -1254,7 +1254,7 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 
 		if point.isClosest and point.currentDistance < 1.2 then
 			if not hasTextUi then
-				hasTextUi = true
+				hasTextUi = nil
 				lib.showTextUI(point.message, uiOptions)
 			end
 
@@ -1269,7 +1269,7 @@ RegisterNetEvent('ox_inventory:setPlayerInventory', function(currentDrops, inven
 					end
 				end, point.invId)
 			end
-		elseif hasTextUi then
+		elseif hasTextUi == point then
 			hasTextUi = false
 			lib.hideTextUI()
 		end

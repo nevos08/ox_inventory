@@ -41,9 +41,11 @@ const WeightBar: React.FC<{ percent: number; durability?: boolean }> = ({ percen
         <div
           style={{
             visibility: percent > 0 ? 'visible' : 'hidden',
-            height: '100%',
+            height: '300%',
+            borderRadius: '100px',
+            translate: '0 -30%',
             width: `${percent}%`,
-            backgroundColor: color,
+            backgroundColor: durability ? color : 'rgb(30, 141, 174)',
             transition: `background ${0.3}s ease, width ${0.3}s ease`,
           }}
         ></div>

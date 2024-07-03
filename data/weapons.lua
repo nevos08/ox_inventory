@@ -227,6 +227,7 @@ return {
 		['WEAPON_FIREEXTINGUISHER'] = {
 			label = 'Fire Extinguisher',
 			weight = 8616,
+			durability = 0.006
 		},
 
 		-- ['WEAPON_FIREWORK'] = {

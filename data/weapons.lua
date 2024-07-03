@@ -7,12 +7,12 @@ return {
 			ammoname = 'ammo-rifle2',
 		},
 
-		['WEAPON_SNOWLAUNCHER'] = {
-			label = 'Snowball Launcher',
-			weight = 1000,
-			durability = 0.03,
-			ammoname = 'WEAPON_SNOWBALL',
-		},
+		-- ['WEAPON_SNOWLAUNCHER'] = {
+		-- 	label = 'Snowball Launcher',
+		-- 	weight = 1000,
+		-- 	durability = 0.03,
+		-- 	ammoname = 'WEAPON_SNOWBALL',
+		-- },
 
 		['WEAPON_TECPISTOL'] = {
 			label = 'Tactical SMG',
@@ -217,24 +217,24 @@ return {
 			ammoname = 'ammo-38'
 		},
 
-		['WEAPON_EMPLAUNCHER'] = {
-			label = 'Compact EMP Launcher',
-			weight = 2750,
-			durability = 0.2,
-			ammoname = 'ammo-emp'
-		},
+		-- ['WEAPON_EMPLAUNCHER'] = {
+		-- 	label = 'Compact EMP Launcher',
+		-- 	weight = 2750,
+		-- 	durability = 0.2,
+		-- 	ammoname = 'ammo-emp'
+		-- },
 
 		['WEAPON_FIREEXTINGUISHER'] = {
 			label = 'Fire Extinguisher',
 			weight = 8616,
 		},
 
-		['WEAPON_FIREWORK'] = {
-			label = 'Firework Launcher',
-			weight = 1000,
-			durability = 0.5,
-			ammoname = 'ammo-firework'
-		},
+		-- ['WEAPON_FIREWORK'] = {
+		-- 	label = 'Firework Launcher',
+		-- 	weight = 1000,
+		-- 	durability = 0.5,
+		-- 	ammoname = 'ammo-firework'
+		-- },
 
 		['WEAPON_FLARE'] = {
 			label = 'Flare',
@@ -261,18 +261,18 @@ return {
 			durability = 0.1,
 		},
 
-		['WEAPON_GRENADE'] = {
-			label = 'Grenade',
-			weight = 400,
-			throwable = true,
-		},
+		-- ['WEAPON_GRENADE'] = {
+		-- 	label = 'Grenade',
+		-- 	weight = 400,
+		-- 	throwable = true,
+		-- },
 
-		['WEAPON_GRENADELAUNCHER'] = {
-			label = 'Grenade Launcher',
-			weight = 6500,
-			durability = 0.05,
-			ammoname = 'ammo-grenade'
-		},
+		-- ['WEAPON_GRENADELAUNCHER'] = {
+		-- 	label = 'Grenade Launcher',
+		-- 	weight = 6500,
+		-- 	durability = 0.05,
+		-- 	ammoname = 'ammo-grenade'
+		-- },
 
 		['WEAPON_GUSENBERG'] = {
 			label = 'Gusenberg',
@@ -305,10 +305,10 @@ return {
 			weight = 12000,
 		},
 
-		['WEAPON_METALDETECTOR'] = {
-			label = 'Metal Detector',
-			weight = 1200,
-		},
+		-- ['WEAPON_METALDETECTOR'] = {
+		-- 	label = 'Metal Detector',
+		-- 	weight = 1200,
+		-- },
 
 		['WEAPON_HOMINGLAUNCHER'] = {
 			label = 'Homing Launcher',
@@ -396,19 +396,19 @@ return {
 			ammoname = 'ammo-sniper'
 		},
 
-		['WEAPON_MG'] = {
-			label = 'Machine Gun',
-			weight = 9000,
-			durability = 0.02,
-			ammoname = 'ammo-rifle2'
-		},
+		-- ['WEAPON_MG'] = {
+		-- 	label = 'Machine Gun',
+		-- 	weight = 9000,
+		-- 	durability = 0.02,
+		-- 	ammoname = 'ammo-rifle2'
+		-- },
 
-		['WEAPON_MINIGUN'] = {
-			label = 'Minigun',
-			weight = 38500,
-			durability = 0.1,
-			ammoname = 'ammo-rifle2'
-		},
+		-- ['WEAPON_MINIGUN'] = {
+		-- 	label = 'Minigun',
+		-- 	weight = 38500,
+		-- 	durability = 0.1,
+		-- 	ammoname = 'ammo-rifle2'
+		-- },
 
 		['WEAPON_MICROSMG'] = {
 			label = 'Micro SMG',
@@ -459,21 +459,21 @@ return {
 
 		['WEAPON_PETROLCAN'] = {
 			label = 'Gas Can',
-			weight = 12000,
+			weight = 5000,
 		},
 
-		['WEAPON_GADGETPISTOL'] = {
-			label = 'Perico Pistol',
-			weight = 1750,
-			durability = 0.1,
-			ammoname = 'ammo-9'
-		},
+		-- ['WEAPON_GADGETPISTOL'] = {
+		-- 	label = 'Perico Pistol',
+		-- 	weight = 1750,
+		-- 	durability = 0.1,
+		-- 	ammoname = 'ammo-9'
+		-- },
 
-		['WEAPON_PIPEBOMB'] = {
-			label = 'Pipe Bomb',
-			weight = 1800,
-			throwable = true,
-		},
+		-- ['WEAPON_PIPEBOMB'] = {
+		-- 	label = 'Pipe Bomb',
+		-- 	weight = 1800,
+		-- 	throwable = true,
+		-- },
 
 		['WEAPON_PISTOL'] = {
 			label = 'Pistol',
@@ -496,23 +496,23 @@ return {
 			ammoname = 'ammo-9'
 		},
 
-		['WEAPON_POOLCUE'] = {
-			label = 'Pool Cue',
-			weight = 146,
-			durability = 0.1,
-		},
+		-- ['WEAPON_POOLCUE'] = {
+		-- 	label = 'Pool Cue',
+		-- 	weight = 146,
+		-- 	durability = 0.1,
+		-- },
 
-		['WEAPON_CANDYCANE'] = {
-			label = 'Candy Cane',
-			weight = 85,
-			durability = 0.1,
-		},
+		-- ['WEAPON_CANDYCANE'] = {
+		-- 	label = 'Candy Cane',
+		-- 	weight = 85,
+		-- 	durability = 0.1,
+		-- },
 
-		['WEAPON_PROXMINE'] = {
-			label = 'Proximity Mine',
-			weight = 2500,
-			throwable = true,
-		},
+		-- ['WEAPON_PROXMINE'] = {
+		-- 	label = 'Proximity Mine',
+		-- 	weight = 2500,
+		-- 	throwable = true,
+		-- },
 
 		['WEAPON_PUMPSHOTGUN'] = {
 			label = 'Pump Shotgun',
@@ -528,32 +528,32 @@ return {
 			ammoname = 'ammo-shotgun'
 		},
 
-		['WEAPON_RAILGUN'] = {
-			label = 'Railgun',
-			weight = 3570,
-			durability = 0.5,
-			ammoname = 'ammo-railgun'
-		},
+		-- ['WEAPON_RAILGUN'] = {
+		-- 	label = 'Railgun',
+		-- 	weight = 3570,
+		-- 	durability = 0.5,
+		-- 	ammoname = 'ammo-railgun'
+		-- },
 
-		['WEAPON_RAILGUNXM3'] = {
-			label = 'Railgun XM3',
-			weight = 3570,
-			durability = 0.5,
-			ammoname = 'ammo-railgun'
-		},
+		-- ['WEAPON_RAILGUNXM3'] = {
+		-- 	label = 'Railgun XM3',
+		-- 	weight = 3570,
+		-- 	durability = 0.5,
+		-- 	ammoname = 'ammo-railgun'
+		-- },
 
-		['WEAPON_RAYCARBINE'] = {
-			label = 'Unholy Hellbringer',
-			weight = 3620,
-			durability = 0.2,
-			ammoname = 'ammo-laser'
-		},
+		-- ['WEAPON_RAYCARBINE'] = {
+		-- 	label = 'Unholy Hellbringer',
+		-- 	weight = 3620,
+		-- 	durability = 0.2,
+		-- 	ammoname = 'ammo-laser'
+		-- },
 
-		['WEAPON_RAYPISTOL'] = {
-			label = 'Up-n-Atomizer',
-			weight = 1540,
-			durability = 0.5
-		},
+		-- ['WEAPON_RAYPISTOL'] = {
+		-- 	label = 'Up-n-Atomizer',
+		-- 	weight = 1540,
+		-- 	durability = 0.5
+		-- },
 
 		['WEAPON_REVOLVER'] = {
 			label = 'Revolver',
@@ -569,12 +569,12 @@ return {
 			ammoname = 'ammo-44'
 		},
 
-		['WEAPON_RPG'] = {
-			label = 'RPG',
-			weight = 5000,
-			durability = 0.3,
-			ammoname = 'ammo-rocket'
-		},
+		-- ['WEAPON_RPG'] = {
+		-- 	label = 'RPG',
+		-- 	weight = 5000,
+		-- 	durability = 0.3,
+		-- 	ammoname = 'ammo-rocket'
+		-- },
 
 		['WEAPON_SAWNOFFSHOTGUN'] = {
 			label = 'Sawn Off Shotgun',
@@ -616,19 +616,19 @@ return {
 			throwable = true,
 		},
 
-		['WEAPON_SNSPISTOL'] = {
-			label = 'SNS Pistol',
-			weight = 465,
-			durability = 0.1,
-			ammoname = 'ammo-45'
-		},
+		-- ['WEAPON_SNSPISTOL'] = {
+		-- 	label = 'SNS Pistol',
+		-- 	weight = 465,
+		-- 	durability = 0.1,
+		-- 	ammoname = 'ammo-45'
+		-- },
 
-		['WEAPON_SNSPISTOL_MK2'] = {
-			label = 'SNS Pistol MK2',
-			weight = 465,
-			durability = 0.1,
-			ammoname = 'ammo-45'
-		},
+		-- ['WEAPON_SNSPISTOL_MK2'] = {
+		-- 	label = 'SNS Pistol MK2',
+		-- 	weight = 465,
+		-- 	durability = 0.1,
+		-- 	ammoname = 'ammo-45'
+		-- },
 
 		['WEAPON_SPECIALCARBINE'] = {
 			label = 'Special Carbine',
@@ -644,11 +644,11 @@ return {
 			ammoname = 'ammo-rifle'
 		},
 
-		['WEAPON_STICKYBOMB'] = {
-			label = 'Sticky Bomb',
-			weight = 1000,
-			throwable = true,
-		},
+		-- ['WEAPON_STICKYBOMB'] = {
+		-- 	label = 'Sticky Bomb',
+		-- 	weight = 1000,
+		-- 	throwable = true,
+		-- },
 
 		['WEAPON_STONE_HATCHET'] = {
 			label = 'Stone Hatchet',
@@ -662,12 +662,12 @@ return {
 			durability = 0.1,
 		},
 
-		['WEAPON_AUTOSHOTGUN'] = {
-			label = 'Sweeper Shotgun',
-			weight = 4400,
-			durability = 0.05,
-			ammoname = 'ammo-shotgun'
-		},
+		-- ['WEAPON_AUTOSHOTGUN'] = {
+		-- 	label = 'Sweeper Shotgun',
+		-- 	weight = 4400,
+		-- 	durability = 0.05,
+		-- 	ammoname = 'ammo-shotgun'
+		-- },
 
 		['WEAPON_SWITCHBLADE'] = {
 			label = 'Switchblade',
@@ -676,45 +676,45 @@ return {
 			anim = { 'anim@melee@switchblade@holster', 'unholster', 200, 'anim@melee@switchblade@holster', 'holster', 600 },
 		},
 
-		['WEAPON_VINTAGEPISTOL'] = {
-			label = 'Vintage Pistol',
-			weight = 700,
-			durability = 0.1,
-			ammoname = 'ammo-9'
-		},
+		-- ['WEAPON_VINTAGEPISTOL'] = {
+		-- 	label = 'Vintage Pistol',
+		-- 	weight = 700,
+		-- 	durability = 0.1,
+		-- 	ammoname = 'ammo-9'
+		-- },
 
-		['WEAPON_RAYMINIGUN'] = {
-			label = 'Widowmaker',
-			weight = 7000,
-			durability = 0.1,
-			ammoname = 'ammo-laser'
-		},
+		-- ['WEAPON_RAYMINIGUN'] = {
+		-- 	label = 'Widowmaker',
+		-- 	weight = 7000,
+		-- 	durability = 0.1,
+		-- 	ammoname = 'ammo-laser'
+		-- },
 
-		['WEAPON_WRENCH'] = {
-			label = 'Wrench',
-			weight = 2500,
-			durability = 0.1,
-		},
+		-- ['WEAPON_WRENCH'] = {
+		-- 	label = 'Wrench',
+		-- 	weight = 2500,
+		-- 	durability = 0.1,
+		-- },
 
-		['WEAPON_PRECISIONRIFLE'] = {
-			label = 'Precision Rifle',
-			weight = 4800,
-			durability = 0.4,
-			ammoname = 'ammo-sniper'
-		},
+		-- ['WEAPON_PRECISIONRIFLE'] = {
+		-- 	label = 'Precision Rifle',
+		-- 	weight = 4800,
+		-- 	durability = 0.4,
+		-- 	ammoname = 'ammo-sniper'
+		-- },
 
-		['WEAPON_TACTICALRIFLE'] = {
-			label = 'Tactical Rifle',
-			weight = 3400,
-			durability = 0.03,
-			ammoname = 'ammo-rifle'
-		},
+		-- ['WEAPON_TACTICALRIFLE'] = {
+		-- 	label = 'Tactical Rifle',
+		-- 	weight = 3400,
+		-- 	durability = 0.03,
+		-- 	ammoname = 'ammo-rifle'
+		-- },
 
-		['WEAPON_TEARGAS'] = {
-			label = 'Tear Gas',
-			weight = 600,
-			throwable = true,
-		},
+		-- ['WEAPON_TEARGAS'] = {
+		-- 	label = 'Tear Gas',
+		-- 	weight = 600,
+		-- 	throwable = true,
+		-- },
 	},
 
 	Components = {
@@ -739,7 +739,7 @@ return {
 			weight = 280,
 			type = 'muzzle',
 			client = {
-                image = 'at_suppressor.png',
+				image = 'at_suppressor.png',
 				component = {
 					`COMPONENT_AT_PI_SUPP`,
 					`COMPONENT_AT_PI_SUPP_02`,
@@ -755,7 +755,7 @@ return {
 			weight = 280,
 			type = 'muzzle',
 			client = {
-                image = 'at_suppressor.png',
+				image = 'at_suppressor.png',
 				component = {
 					`COMPONENT_AT_AR_SUPP`,
 					`COMPONENT_AT_AR_SUPP_02`,
@@ -803,7 +803,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended.png',
+				image = 'at_clip_extended.png',
 				component = {
 					`COMPONENT_APPISTOL_CLIP_02`,
 					`COMPONENT_CERAMICPISTOL_CLIP_02`,
@@ -815,7 +815,7 @@ return {
 					`COMPONENT_SNSPISTOL_CLIP_02`,
 					`COMPONENT_SNSPISTOL_MK2_CLIP_02`,
 					`COMPONENT_VINTAGEPISTOL_CLIP_02`,
-                    `COMPONENT_TECPISTOL_CLIP_02`,
+					`COMPONENT_TECPISTOL_CLIP_02`,
 				},
 				usetime = 2500
 			}
@@ -826,7 +826,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended.png',
+				image = 'at_clip_extended.png',
 				component = {
 					`COMPONENT_ASSAULTSMG_CLIP_02`,
 					`COMPONENT_COMBATPDW_CLIP_02`,
@@ -845,7 +845,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended2.png',
+				image = 'at_clip_extended2.png',
 				component = {
 					`COMPONENT_ASSAULTSHOTGUN_CLIP_02`,
 					`COMPONENT_HEAVYSHOTGUN_CLIP_02`,
@@ -859,7 +859,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended2.png',
+				image = 'at_clip_extended2.png',
 				component = {
 					`COMPONENT_ADVANCEDRIFLE_CLIP_02`,
 					`COMPONENT_ASSAULTRIFLE_CLIP_02`,
@@ -885,7 +885,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_GUSENBERG_CLIP_02`,
 					`COMPONENT_MG_CLIP_02`,
@@ -901,7 +901,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_extended2.png',
+				image = 'at_clip_extended2.png',
 				component = {
 					`COMPONENT_HEAVYSNIPER_MK2_CLIP_02`,
 					`COMPONENT_MARKSMANRIFLE_CLIP_02`,
@@ -916,7 +916,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_COMBATPDW_CLIP_03`,
 					`COMPONENT_MACHINEPISTOL_CLIP_03`,
@@ -931,7 +931,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_HEAVYSHOTGUN_CLIP_03`
 				},
@@ -944,7 +944,7 @@ return {
 			type = 'magazine',
 			weight = 280,
 			client = {
-                image = 'at_clip_drum.png',
+				image = 'at_clip_drum.png',
 				component = {
 					`COMPONENT_ASSAULTRIFLE_CLIP_03`,
 					`COMPONENT_COMPACTRIFLE_CLIP_03`,

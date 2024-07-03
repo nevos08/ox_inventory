@@ -57,7 +57,7 @@ return {
 		label = 'Burger',
 		weight = 220,
 		client = {
-			status = { hunger = 200000 },
+			status = { hunger = 5000 },
 			anim = 'eating',
 			prop = 'burger',
 			usetime = 2500,
@@ -93,7 +93,7 @@ return {
 		label = 'Water',
 		weight = 500,
 		client = {
-			status = { thirst = 200000 },
+			status = { thirst = 5000 },
 			anim = { dict = 'mp_player_intdrink', clip = 'loop_bottle' },
 			prop = { model = `prop_ld_flow_bottle`, pos = vec3(0.03, 0.03, 0.02), rot = vec3(0.0, 0.0, -1.5) },
 			usetime = 2500,
@@ -170,15 +170,34 @@ return {
 			{
 				label = "Beschriften",
 				action = function(slot)
+					SetNuiFocusKeepInput(false)
 					local input = lib.inputDialog("Beschriften", {
 						{ type = "input", label = "Name", description = "Gib dem Schlüssel einen Namen", required = true }
 					})
+					SetNuiFocusKeepInput(true)
 
 					if not input then
 						return
 					end
 
 					TriggerServerEvent("nvx_core:items:rename", slot, input[1])
+				end
+			}
+		}
+	},
+
+	["torso"] = {
+		label = "Oberteil",
+		weight = 100,
+		stack = false,
+		client = {
+			export = "nvx_clothing.torso",
+			-- usetime = 2000
+		},
+		buttons = {
+			{
+				label = "Umbenennen",
+				action = function(slot)
 				end
 			}
 		}
